@@ -125,7 +125,7 @@ public class extractFiles
 
         Document doc = Jsoup.parse(file.toFile(), "UTF-8");
 
-        Elements elements = doc.select("#content"); // CSS Selector 사용
+        Elements elements = doc.select("#content");
 
         if (elements.size() != 1) {
             throw new IOException("#content 요소를 정확히 1개 찾지 못했습니다.");
