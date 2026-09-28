@@ -27,7 +27,7 @@ public class extractFiles
             case "txt": return extractTxt(file);
             case "tsv": return extractTsv(file);
             case "csv": return extractCsv(file);
-            case "html": case "htm": return extractHtml(file);
+            case "html", "htm": return extractHtml(file);
             default: throw new IOException("지원하지 않는 형식: " + ext);
         }
     }
