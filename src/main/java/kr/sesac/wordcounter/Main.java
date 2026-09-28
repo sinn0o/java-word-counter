@@ -28,7 +28,7 @@ public class Main {
                             System.out.println("분석이 되지 않았습니다. 분석을 먼저 진행하세요.");
                             break;
                         }
-                        findNthWords(scanner, analysis.getWordCount()); //끝
+                        findNthWords(scanner, analysis.getWordCount());
 
                         break;
                     }
@@ -38,7 +38,7 @@ public class Main {
                             System.out.println("분석이 되지 않았습니다. 분석을 먼저 진행하세요.");
                             break;
                         }
-                        wordSearch(scanner, analysis.getWordCount()); //끝
+                        wordSearch(scanner, analysis.getWordCount());
                         break;
                     }
 
@@ -47,7 +47,7 @@ public class Main {
                             System.out.println("분석이 되지 않았습니다. 분석을 먼저 진행하세요.");
                             break;
                         }
-                        makeOutFile(analysis.getWordCount()); //끝
+                        makeOutFile(analysis.getWordCount());
 
                         break;
                     }
@@ -57,7 +57,7 @@ public class Main {
                             System.out.println("분석이 되지 않았습니다. 분석을 먼저 진행하세요.");
                             break;
                         }
-                        analysis.printSummary(); //끝
+                        analysis.printSummary();
 
                         break;
 
@@ -106,7 +106,7 @@ public class Main {
                 return result;
             }
             return o1.compareTo(o2); //단어 오름차순
-        }); //여기까지 람다식 어쩌고임 헷갈리지 말것!
+        }); //여기까지 람다식
         return keySet;
     }
 

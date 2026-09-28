@@ -32,7 +32,7 @@ public class Analysis {
         int skippedFiles;
 
         while (true) {
-            //입력이랑 이것저것
+            //입력, 존재 여부 및 확장자 체크
             inputPath = Main.readText(scanner, "파일 또는 폴더 경로 > ");
             Path path;
             try {
@@ -146,9 +146,9 @@ public class Analysis {
                                    int wordCountSize,
                                    long time
 
-    ){} //요약본 한번에 넣어주는거
+    ){} //결과 저장용 레코드
 
-    private static void PrintSummary(AnalysisSummary s){ //1이랑 5에서 쓰려고 따로 빼둠
+    private static void PrintSummary(AnalysisSummary s){ //1이랑 5에서 사용
         System.out.println("입력: " + s.inputPath);
         System.out.println("파일: 시도 " + s.fileSize + "개 / 성공 " + s.success
                 + "개 / 실패 " + s.fail + "개 / 지원하지 않아 건너뜀 " + s.skippedFiles + "개");
