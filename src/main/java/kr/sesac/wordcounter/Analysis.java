@@ -10,15 +10,20 @@ import java.util.stream.Stream;
 import static kr.sesac.wordcounter.extractFiles.extract;
 
 public class Analysis {
-    HashMap<String, Long> wordCount = null;
-    static AnalysisSummary lastSummary = null;
-    long totalNum = 0;
+    private HashMap<String, Long> wordCount = null;
+    private AnalysisSummary lastSummary = null;
+    private long totalNum = 0;
 
     public Map<String, Long> getWordCount() {
-        return wordCount;
+        HashMap<String, Long> temp = new HashMap<>();
+        if (wordCount == null) {
+            return null;
+        }
+        temp.putAll(wordCount);
+        return temp;
     }
 
-    public static AnalysisSummary getLastSummary() {
+    public AnalysisSummary getLastSummary() {
         return lastSummary;
     }
 
@@ -33,8 +38,15 @@ public class Analysis {
 
         while (true) {
             //입력, 존재 여부 및 확장자 체크
-            inputPath = Main.readText(scanner, "파일 또는 폴더 경로 > ");
+            inputPath = Main.readText(scanner, "파일 또는 폴더 경로 (이전으로 돌아갈 경우 0 입력)> ");
             Path path;
+            try {
+                int num = Integer.parseInt(inputPath);
+                if (num == 0) {
+                    return;
+                }
+            } catch (NumberFormatException e) {
+            }
             try {
                 path = Path.of(inputPath);
             } catch (InvalidPathException e) {

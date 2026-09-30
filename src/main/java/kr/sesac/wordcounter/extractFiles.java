@@ -66,10 +66,12 @@ public class extractFiles
             }
 
             String line;
+            long recordNumber = 0;
             while ((line = reader.readLine()) != null) {
+                recordNumber++;
                 String[] columns = line.split("\t", -1);
                 if (columns.length != columnArray.length) {
-                    throw new IOException("레코드의 셀 수가 헤더와 다릅니다.");
+                    throw new IOException(recordNumber+"번 레코드의 셀 수가 헤더와 다릅니다.(기대: " + columnArray.length + "개, 실제: " + columns.length + "개)");
                 }
                 for (int idx : targetIndexes) {
                     String cell = columns[idx];
@@ -104,7 +106,7 @@ public class extractFiles
                 try {
                     for (CSVRecord record : parser) {
                         if (!record.isConsistent()) {
-                            throw new IOException("레코드의 셀 수가 헤더와 다릅니다");
+                            throw new IOException(record.getRecordNumber()+"번 레코드의 셀 수가 헤더와 다릅니다.(기대: " + parser.getHeaderNames().size() + "개, 실제: " + record.size() + "개)");
                         }
                         for (String col : csvColumns) {
                             String cell = record.get(col);
@@ -121,7 +123,6 @@ public class extractFiles
 
     private static List<String> extractHtml(Path file) throws IOException {
         List<String> lines = new ArrayList<>();
-        String path = file.toString();
 
         Document doc = Jsoup.parse(file.toFile(), "UTF-8");
 

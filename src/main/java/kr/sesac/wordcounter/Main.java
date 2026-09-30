@@ -53,7 +53,7 @@ public class Main {
                     }
 
                     case 5:
-                        if (analysis.getLastSummary() == null) {
+                        if (analysis.getWordCount()==null) {
                             System.out.println("분석이 되지 않았습니다. 분석을 먼저 진행하세요.");
                             break;
                         }
