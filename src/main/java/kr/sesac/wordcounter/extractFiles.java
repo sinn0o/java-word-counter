@@ -56,7 +56,7 @@ public class extractFiles
             String[] columnArray = headerLine.split("\t");
             List<String> headerList = Arrays.asList(columnArray);
 
-            List<Integer> targetIndexes = new ArrayList<>(); //인덱스 저장용 리스트
+            List<Integer> targetIndexes = new ArrayList<>(); //인덱스 저장용 리스트 생성
             for (String col : tsvColumns) {
                 int idx = headerList.indexOf(col);
                 if (idx == -1) {
