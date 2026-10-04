@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.util.*;
 
-public class Main {
+public class MainForPR {
     public static void main(String[] args) {
         Analysis analysis = new Analysis();
 
